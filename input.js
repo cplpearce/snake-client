@@ -15,25 +15,29 @@ const setupInput = (conn) => {
   stdin.on('data', (key) => handleUserInput(key));
 
   const handleUserInput = (key) =>{
-    console.log(key)
       if (key === '\u0003') {
         process.exit();
       }
       if (key === 'w') {
-        console.log('Up');
         conn.write('Move: up');
       }
       if (key === 'a') {
-        console.log('Left');
         conn.write('Move: left');
       }
       if (key === 's') {
-        console.log('Down');
         conn.write('Move: down');
       }
       if (key === 'd') {
-        console.log('Right');
         conn.write('Move: right');
+      }
+      if (key === 'q') {
+        conn.write('Say: SssssSs');
+      }
+      if (key === 'e') {
+        conn.write('Say: HisSsSs');
+      }
+      if (key === 'f') {
+        conn.write('Say: *Nom Nom*');
       }
     };
   

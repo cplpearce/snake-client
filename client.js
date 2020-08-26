@@ -1,10 +1,10 @@
 const net = require('net');
 
-const connect = function() {
+const connect = function(IP, PORT) {
   // create socket connection
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
   // when the server conncts, let us know
@@ -29,10 +29,3 @@ const connect = function() {
 }
 
 module.exports = {connect}
-
-/*
-"Move: up" - move up one square (unless facing down)
-"Move: down" - move down one square (unless facing up)
-"Move: left" - move left one square (unless facing right)
-"Move: right" - move left one square (unless facing left)
-*/
