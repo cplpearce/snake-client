@@ -5,7 +5,9 @@ const stdin = process.stdin;
  * Specifically, so that we can handle user input via stdin
  **/
 
-const setupInput = () => {
+let connection;
+
+const setupInput = (conn) => {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
@@ -13,17 +15,25 @@ const setupInput = () => {
   stdin.on('data', (key) => handleUserInput(key));
 
   const handleUserInput = (key) =>{
+    console.log(key)
       if (key === '\u0003') {
         process.exit();
       }
-      if (key.name === 'a') {
-        client.write('Move: left');
+      if (key === 'w') {
+        console.log('Up');
+        conn.write('Move: up');
       }
-      if (key.name === 'd') {
-        process.exit();
+      if (key === 'a') {
+        console.log('Left');
+        conn.write('Move: left');
       }
-      if (key.name === 'w') {
-        process.exit();
+      if (key === 's') {
+        console.log('Down');
+        conn.write('Move: down');
+      }
+      if (key === 'd') {
+        console.log('Right');
+        conn.write('Move: right');
       }
     };
   
