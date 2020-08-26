@@ -20,6 +20,7 @@ const connect = function(IP, PORT) {
   // when the server says something, print it
   conn.on('data', (data) => {
     console.log('Server says:', data);
+    if (data === 'you crashed, so you ded.') process.exit();
   });
 
   // set all the encoding to utf-8
