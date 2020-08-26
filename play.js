@@ -1,8 +1,8 @@
-const net = require('net');
-const {connect} = require('./client')
-
+const { connect } = require('./client');
+const { setupInput } = require('./input');
 console.clear();
 
-// connect to danger noodle game
 console.log('Connecting ...');
 connect();
+
+setupInput();
